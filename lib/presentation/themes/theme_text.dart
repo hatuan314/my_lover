@@ -15,10 +15,24 @@ class ThemeText {
     fontWeight: FontWeight.w300,
   );
 
+  static TextStyle headline2Pacifico = TextStyle(
+    fontSize: 62.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Pacifico'
+  );
+
   static TextStyle headline3 = TextStyle(
     fontSize: 50.sp,
     color: AppColor.textColor,
     fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle headline3Pacifico = TextStyle(
+    fontSize: 50.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Pacifico'
   );
 
   static TextStyle headline4 = TextStyle(
@@ -45,6 +59,13 @@ class ThemeText {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle subtitle1Pacifico = TextStyle(
+    fontSize: 18.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Pacifico',
+  );
+
   static TextStyle subtitle2 = TextStyle(
     fontSize: 16.sp,
     color: AppColor.textColor,
@@ -57,10 +78,25 @@ class ThemeText {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle body1Pacifico = TextStyle(
+    fontSize: 18.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.normal,
+      fontFamily: 'Pacifico',
+  );
+
+
   static TextStyle body2 = TextStyle(
     fontSize: 16.sp,
     color: AppColor.textColor,
     fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle body2Pacifico = TextStyle(
+    fontSize: 16.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Pacifico',
   );
 
   static TextStyle button = TextStyle(
@@ -75,9 +111,24 @@ class ThemeText {
     fontWeight: FontWeight.normal,
   );
 
+  static TextStyle captionPacifico = TextStyle(
+    fontSize: 13.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Pacifico',
+  );
+
   static TextStyle overline = TextStyle(
     fontSize: 10.sp,
     color: AppColor.textColor,
     fontWeight: FontWeight.normal,
   );
+
+  static TextStyle overlinePacifico = TextStyle(
+    fontSize: 10.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Pacifico',
+  );
+
 }
