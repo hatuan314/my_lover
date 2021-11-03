@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_lover/common/app_enum.dart';
 import 'package:my_lover/common/constants/layout_constants.dart';
+import 'package:my_lover/common/constants/string_constants.dart';
 import 'package:my_lover/presentation/journey/home/home_controller.dart';
 import 'package:my_lover/presentation/journey/main/widgets/info_widget.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
@@ -22,28 +23,45 @@ class HomePage extends GetView<HomeController> {
           alignment: Alignment.center,
           padding: EdgeInsets.symmetric(horizontal: LayoutConstants.appPaddingHorizontal),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  WaveProgress(
-                    loveProgressSize,
-                    AppColor.primaryColor,
-                    AppColor.primaryColorOp30,
-                    progress,
+              SafeArea(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    StringConstants.appName,
+                    style: ThemeText.body1Pacifico,
                   ),
-                  Text(controller.dating.value.toString(), style: ThemeText.headline2Pacifico.copyWith(color: AppColor.white),)
-                ],
+                ),
               ),
-              SizedBox(height: LayoutConstants.appPaddingVertical,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Column(
+                // mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  InfoWidget(name: 'Hoàng Tuấn', sex: Sex.male, zodiac: Zodiac.pisces, age: controller.myAge.value,),
-                  InfoWidget(name: 'Sumi', sex: Sex.female, zodiac: Zodiac.cancer, age: controller.sumiAge.value),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      WaveProgress(
+                        loveProgressSize,
+                        AppColor.primaryColor,
+                        AppColor.primaryColorOp30,
+                        progress,
+                      ),
+                      Text(controller.dating.value.toString(), style: ThemeText.headline2Pacifico.copyWith(color: AppColor.white),)
+                    ],
+                  ),
+                  SizedBox(height: LayoutConstants.appPaddingVertical,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InfoWidget(name: 'Hoàng Tuấn', sex: Sex.male, zodiac: Zodiac.pisces, age: controller.myAge.value,),
+                      InfoWidget(name: 'Sumi', sex: Sex.female, zodiac: Zodiac.cancer, age: controller.sumiAge.value),
+                    ],
+                  ),
                 ],
               ),
+              SizedBox.shrink()
             ],
           ),
         ),
