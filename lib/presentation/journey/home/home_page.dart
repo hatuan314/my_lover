@@ -7,6 +7,8 @@ import 'package:my_lover/presentation/journey/home/home_controller.dart';
 import 'package:my_lover/presentation/journey/main/widgets/info_widget.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
 import 'package:my_lover/presentation/themes/theme_text.dart';
+import 'package:my_lover/presentation/widgets/app_screen.dart';
+import 'package:my_lover/presentation/widgets/appbar_widget.dart';
 import 'package:my_lover/presentation/widgets/ware_progress/ware_progress_widget.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -17,24 +19,16 @@ class HomePage extends GetView<HomeController> {
     double loveProgressSize = MediaQuery.of(context).size.width * 0.5;
     double progress = 60;
     return Obx(
-      () => Material(
-        color: AppColor.transparent,
-        child: Container(
+      () => AppScreen(
+        title: StringConstants.appName,
+        body: Container(
           alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(horizontal: LayoutConstants.appPaddingHorizontal),
+          padding: EdgeInsets.symmetric(
+              horizontal: LayoutConstants.appPaddingHorizontal),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SafeArea(
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    StringConstants.appName,
-                    style: ThemeText.body1Pacifico,
-                  ),
-                ),
-              ),
+              const SizedBox.shrink(),
               Column(
                 // mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,25 +42,39 @@ class HomePage extends GetView<HomeController> {
                         AppColor.primaryColorOp30,
                         progress,
                       ),
-                      Text(controller.dating.value.toString(), style: ThemeText.headline2Pacifico.copyWith(color: AppColor.white),)
+                      Text(
+                        controller.dating.value.toString(),
+                        style: ThemeText.headline2Pacifico
+                            .copyWith(color: AppColor.white),
+                      )
                     ],
                   ),
-                  SizedBox(height: LayoutConstants.appPaddingVertical,),
+                  SizedBox(
+                    height: LayoutConstants.appPaddingVertical,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InfoWidget(name: 'Hoàng Tuấn', sex: Sex.male, zodiac: Zodiac.pisces, age: controller.myAge.value,),
-                      InfoWidget(name: 'Sumi', sex: Sex.female, zodiac: Zodiac.cancer, age: controller.sumiAge.value),
+                      InfoWidget(
+                        name: 'Hoàng Tuấn',
+                        sex: Sex.male,
+                        zodiac: Zodiac.pisces,
+                        age: controller.myAge.value,
+                      ),
+                      InfoWidget(
+                          name: 'Sumi',
+                          sex: Sex.female,
+                          zodiac: Zodiac.cancer,
+                          age: controller.sumiAge.value),
                     ],
                   ),
                 ],
               ),
-              SizedBox.shrink()
+              const SizedBox.shrink()
             ],
           ),
         ),
       ),
     );
   }
-
 }

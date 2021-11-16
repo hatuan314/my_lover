@@ -29,4 +29,13 @@ class AppUtils {
         return IconConstants.icFemale;
     }
   }
+
+  static bool isNullEmpty(Object? o) => o == null || "" == o;
+
+  static bool isNullEmptyList<T>(List<T> t) => t == null || [] == t || t.isEmpty;
+
+  static bool isNullEmptyOrFalse(Object? o) => o == null || false == o || "" == o;
+
+  static bool isNullEmptyFalseOrZero(Object? o) =>
+      o == null || false == o || 0 == o || "" == o || "0" == o;
 }

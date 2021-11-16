@@ -18,7 +18,7 @@ class BottomNavigationWidget extends GetWidget<MainController> {
         height: LayoutConstants.iconsSize18,
         color: index == controller.selectIndex.value
             ? AppColor.primaryColor
-            : AppColor.primaryColorOp30,
+            : AppColor.primaryColorOp50,
       ),
     ));
   }

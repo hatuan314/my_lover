@@ -29,28 +29,22 @@ class TouchableWidget extends StatelessWidget {
       height: height,
       margin: margin,
       decoration: decoration ??
-          BoxDecoration(
+          const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(4)),
           ),
-      child: Stack(children: <Widget>[
-        Container(
-          child: Center(
-            child: child,
-          ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          highlightColor: const Color.fromRGBO(204, 223, 242, 0.2),
+          splashColor: const Color.fromRGBO(204, 223, 242, 0.4),
+          customBorder: RoundedRectangleBorder(
+              borderRadius: borderRadiusEffect ??
+                  decoration?.borderRadius ??
+                  const BorderRadius.all(Radius.circular(6))),
+          onTap: () => onPressed!(),
+          child: child,
         ),
-        Positioned.fill(
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              highlightColor: Color.fromRGBO(204, 223, 242, 0.2),
-              splashColor: Color.fromRGBO(204, 223, 242, 0.4),
-              customBorder: RoundedRectangleBorder(
-                  borderRadius: borderRadiusEffect ?? decoration?.borderRadius ?? BorderRadius.all(Radius.circular(6))),
-              onTap: () => onPressed!(),
-            ),
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }

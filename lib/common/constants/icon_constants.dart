@@ -8,4 +8,6 @@ class IconConstants {
   static const icCalendar = path + '/ic_calendar.svg';
   static const icHome = path + '/ic_home.svg';
   static const icMenstrualCycle = path + '/ic_menstrual_cycle.svg';
+  static const icAdd = path + '/ic_add.svg';
+  static const icClose = path + '/ic_close.svg';
 }

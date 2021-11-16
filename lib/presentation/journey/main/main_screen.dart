@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_lover/common/constants/key_constants.dart';
-import 'package:my_lover/common/constants/string_constants.dart';
 import 'package:my_lover/presentation/journey/anniversary/couple_anniversary_page.dart';
 import 'package:my_lover/presentation/journey/home/home_page.dart';
 import 'package:my_lover/presentation/journey/main/widgets/bottom_navigation_widget.dart';
 import 'package:my_lover/presentation/journey/menstrual_cycle/menstrual_cycle_page.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
-import 'package:my_lover/presentation/themes/theme_text.dart';
 
 import 'main_controller.dart';
 
