@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: () {
         return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
           initialBinding: AppBinding(),
           initialRoute: RouteList.splashScreen,
           getPages: AppPages.getPages(),

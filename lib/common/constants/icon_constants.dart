@@ -10,4 +10,5 @@ class IconConstants {
   static const icMenstrualCycle = path + '/ic_menstrual_cycle.svg';
   static const icAdd = path + '/ic_add.svg';
   static const icClose = path + '/ic_close.svg';
+  static const icHeart = path + '/ic_heart.svg';
 }

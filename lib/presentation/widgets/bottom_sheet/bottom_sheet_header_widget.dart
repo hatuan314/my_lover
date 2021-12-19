@@ -6,6 +6,7 @@ import 'package:my_lover/common/constants/icon_constants.dart';
 import 'package:my_lover/common/constants/layout_constants.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
 import 'package:my_lover/presentation/themes/theme_text.dart';
+import 'package:my_lover/presentation/widgets/app_image_widget.dart';
 import 'package:my_lover/presentation/widgets/touchable_widget.dart';
 
 class BottomSheetHeaderWidget extends StatelessWidget {
@@ -31,9 +32,10 @@ class BottomSheetHeaderWidget extends StatelessWidget {
                 onPressed: () {
                   Get.back();
                 },
-                child: SvgPicture.asset(
-                  IconConstants.icClose,
-                  width: LayoutConstants.iconsSize18,
+                child: AppImageWidget.asset(
+                  path: IconConstants.icClose,
+                  width: LayoutConstants.iconsSize15,
+                  height: LayoutConstants.iconsSize15,
                   color: AppColor.primaryColor,
                 ),
               )),

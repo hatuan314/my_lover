@@ -14,6 +14,12 @@ class LayoutConstants {
   static double appPaddingHorizontal = 18.w;
   static double paddingHorizontal8 = 8.w;
 
-  static double iconsSize18 = 18.w;
-  static double iconsSize15 = 15.w;
+  static double width_8 = 8.w;
+
+  static double space_20 = 20.sp;
+  static double space_16 = 16.sp;
+  static double space_8 = 8.sp;
+
+  static double iconsSize18 = 18.sp;
+  static double iconsSize15 = 15.sp;
 }

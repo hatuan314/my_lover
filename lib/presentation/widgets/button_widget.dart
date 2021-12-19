@@ -8,7 +8,7 @@ import 'touchable_widget.dart';
 class ButtonWidget extends StatelessWidget {
   final Widget child;
   final Color? backgroundColor;
-  final Function onPressed;
+  final Function() onPressed;
 
   const ButtonWidget({
     Key? key,

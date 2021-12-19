@@ -6,19 +6,25 @@ import 'package:my_lover/common/constants/layout_constants.dart';
 import 'package:my_lover/presentation/journey/main/main_constants.dart';
 import 'package:my_lover/presentation/journey/main/main_controller.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
+import 'package:my_lover/presentation/widgets/app_image_widget.dart';
 import 'package:my_lover/presentation/widgets/touchable_widget.dart';
 
 class BottomNavigationWidget extends GetWidget<MainController> {
-  Widget _buildItemWidget({int? index, String? iconPath, Function? onPressed}) {
+  const BottomNavigationWidget({Key? key}) : super(key: key);
+
+  Widget _buildItemWidget({int? index, String? iconPath, Function()? onPressed}) {
     return Expanded(
         child: TouchableWidget(
       onPressed: onPressed,
-      child: SvgPicture.asset(
-        iconPath as String,
-        height: LayoutConstants.iconsSize18,
-        color: index == controller.selectIndex.value
-            ? AppColor.primaryColor
-            : AppColor.primaryColorOp50,
+      height: double.infinity,
+      child: SafeArea(
+        child: AppImageWidget.asset(
+          path: iconPath!,
+          height: LayoutConstants.iconsSize18,
+          color: index == controller.selectIndex.value
+              ? AppColor.primaryColor
+              : AppColor.primaryColorOp50,
+        ),
       ),
     ));
   }

@@ -1,3 +1,3 @@
 class MenstrualCycleConstants {
-  static const String menstrualCycleTitle = 'Shush!!!';
+  static const String menstrualCycleTitle = 'Bé dâu';
 }

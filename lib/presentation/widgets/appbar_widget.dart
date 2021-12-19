@@ -6,10 +6,11 @@ import 'package:my_lover/presentation/themes/theme_color.dart';
 import 'package:my_lover/presentation/themes/theme_text.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final String? title;
+  final Widget? titleWidget;
   final List<Widget>? actions;
 
-  const AppBarWidget({Key? key, required this.title, this.actions})
+  const AppBarWidget({Key? key, this.title, this.actions, this.titleWidget})
       : super(key: key);
 
   @override
@@ -25,11 +26,11 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              title,
+            AppUtils.isNullEmpty(titleWidget) ? Text(
+              title ?? '',
               style: ThemeText.body1Pacifico
                   .copyWith(color: AppColor.primaryColor),
-            ),
+            ) : titleWidget!,
             AppUtils.isNullEmpty(actions)
                 ? const SizedBox.shrink()
                 : Row(

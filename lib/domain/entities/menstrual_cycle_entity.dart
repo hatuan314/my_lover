@@ -14,18 +14,18 @@ class MenstrualCycleEntity {
   @HiveField(2)
   int endDate;
   @HiveField(3)
-  String hiveJson;
+  String? hiveJson;
   HiveEntity? hive;
 
   MenstrualCycleEntity(
-      {required this.createAt, required this.startDate, required this.endDate, required this.hiveJson, this.hive});
+      {required this.createAt, required this.startDate, required this.endDate, this.hiveJson, this.hive});
 
   void setHiveJson() {
     hiveJson = jsonEncode(hive?.toJson());
   }
 
   void setHive() {
-    Map<String, dynamic> json = jsonDecode(hiveJson);
+    Map<String, dynamic> json = jsonDecode(hiveJson ?? '');
     hive = HiveEntity.fromJson(json);
   }
 }

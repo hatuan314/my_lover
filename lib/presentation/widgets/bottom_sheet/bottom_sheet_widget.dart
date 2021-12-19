@@ -26,7 +26,7 @@ class BottomSheetWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             BottomSheetHeaderWidget(
-              title: header ?? '',
+              title: header,
             ),
             SafeArea(
                 child: !AppUtils.isNullEmpty(body)

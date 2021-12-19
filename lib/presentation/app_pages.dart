@@ -16,6 +16,7 @@ class AppPages {
       GetPage(name: RouteList.mainScreen, page: () => const MainScreen(key: KeyConstants.mainScreen,), bindings: [
         MainBinding(),
         HomeBinding(),
+        MenstrualCycleBinding(),
       ]),
     ];
   }

@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:my_lover/common/app_utils.dart';
 import 'package:my_lover/common/constants/icon_constants.dart';
 import 'package:my_lover/common/constants/layout_constants.dart';
+import 'package:my_lover/presentation/journey/menstrual_cycle/menstrual_cycle_controller.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
 import 'package:my_lover/presentation/themes/theme_text.dart';
 import 'package:my_lover/presentation/widgets/bottom_sheet/bottom_sheet_widget.dart';
 import 'package:my_lover/presentation/widgets/button_widget.dart';
 import 'package:my_lover/presentation/widgets/touchable_widget.dart';
 
-class AddMenstrualCycleBottomSheetWidget extends StatelessWidget {
+class AddMenstrualCycleBottomSheetWidget extends GetWidget<MenstrualCycleController> {
   const AddMenstrualCycleBottomSheetWidget({Key? key}) : super(key: key);
 
-  Widget _selectDateWidget(
-      {String? title, Function()? onPressed, DateTime? date}) {
+  Widget _selectDateWidget({String? title, Function()? onPressed, DateTime? date}) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,13 +32,11 @@ class AddMenstrualCycleBottomSheetWidget extends StatelessWidget {
             onPressed: onPressed,
             child: Container(
               decoration: const BoxDecoration(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(LayoutConstants.radius_8)),
+                borderRadius: BorderRadius.all(Radius.circular(LayoutConstants.radius_8)),
                 color: AppColor.secondColor,
               ),
               padding: EdgeInsets.symmetric(
-                  vertical: LayoutConstants.paddingVertical8,
-                  horizontal: LayoutConstants.paddingHorizontal8),
+                  vertical: LayoutConstants.paddingVertical8, horizontal: LayoutConstants.paddingHorizontal8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -45,9 +45,7 @@ class AddMenstrualCycleBottomSheetWidget extends StatelessWidget {
                     color: AppColor.textColor,
                     width: LayoutConstants.iconsSize15,
                   ),
-                  Text(AppUtils.isNullEmpty(date)
-                      ? ''
-                      : DateFormat('dd/MM/yyyy').format(date!)),
+                  Text(AppUtils.isNullEmpty(date) ? '' : DateFormat('dd/MM/yyyy').format(date!)),
                   const SizedBox.shrink(),
                 ],
               ),
@@ -60,7 +58,7 @@ class AddMenstrualCycleBottomSheetWidget extends StatelessWidget {
 
   Widget _applyButtonWidget() {
     return ButtonWidget(
-      onPressed: () {},
+      onPressed: controller.addMenstrualCycleController,
       child: Container(
         alignment: Alignment.center,
         child: Text(
@@ -71,27 +69,41 @@ class AddMenstrualCycleBottomSheetWidget extends StatelessWidget {
     );
   }
 
-  Widget _bodyWidget() {
+  Widget _bodyWidget(BuildContext context) {
     return Column(
       children: [
         Row(
           children: [
-            _selectDateWidget(
-              title: 'Bắt đầu',
-              date: DateTime.now(),
-              onPressed: () {},
+            Obx(
+              () => _selectDateWidget(
+                title: 'Bắt đầu',
+                date: controller.rxStartDate.value,
+                onPressed: () => openDatePicker(
+                  context,
+                  date: controller.rxStartDate.value,
+                  onConfirm: controller.setStartDate,
+                ),
+              ),
             ),
             SizedBox(
               width: LayoutConstants.paddingHorizontal8,
             ),
-            _selectDateWidget(
-              title: 'Kết thúc',
-              date: DateTime.now(),
-              onPressed: () {},
+            Obx(
+                  () => _selectDateWidget(
+                title: 'Kết thúc',
+                date: controller.rxEndDate.value,
+                    onPressed: () => openDatePicker(
+                      context,
+                      date: controller.rxEndDate.value,
+                      onConfirm: controller.setEndDate,
+                    ),
+              ),
             ),
           ],
         ),
-        SizedBox(height: LayoutConstants.appPaddingVertical,),
+        SizedBox(
+          height: LayoutConstants.appPaddingVertical,
+        ),
         _applyButtonWidget(),
       ],
     );
@@ -101,7 +113,19 @@ class AddMenstrualCycleBottomSheetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomSheetWidget(
       header: 'Viết nhật ký',
-      body: _bodyWidget(),
+      body: _bodyWidget(context),
+    );
+  }
+
+  void openDatePicker(BuildContext context, {DateTime? date, Function(DateTime)? onConfirm}) {
+    final minTime = DateTime(DateTime.now().year - 1, DateTime.now().month, DateTime.now().day);
+    DatePicker.showDatePicker(
+      context,
+      showTitleActions: true,
+      minTime: minTime,
+      onConfirm: onConfirm,
+      currentTime: date,
+      locale: LocaleType.vi,
     );
   }
 }
