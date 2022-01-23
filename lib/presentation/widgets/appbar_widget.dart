@@ -19,25 +19,14 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       bottom: false,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.center,
         padding: EdgeInsets.symmetric(
           horizontal: LayoutConstants.appPaddingHorizontal,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppUtils.isNullEmpty(titleWidget) ? Text(
-              title ?? '',
-              style: ThemeText.body1Pacifico
-                  .copyWith(color: AppColor.primaryColor),
-            ) : titleWidget!,
-            AppUtils.isNullEmpty(actions)
-                ? const SizedBox.shrink()
-                : Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: actions!,
-                  )
-          ],
+        child: Text(
+          title ?? '',
+          style: ThemeText.headline6Pacifico
+              .copyWith(color: AppColor.primaryColor, fontWeight: FontWeight.normal),
         ),
       ),
     );

@@ -53,6 +53,13 @@ class ThemeText {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle headline6Pacifico = TextStyle(
+    fontSize: 20.sp,
+    color: AppColor.textColor,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Pacifico',
+  );
+
   static TextStyle subtitle1 = TextStyle(
     fontSize: 16.sp,
     color: AppColor.textColor,

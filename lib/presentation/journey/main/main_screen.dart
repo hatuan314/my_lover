@@ -22,16 +22,17 @@ class MainScreen extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Material(
-        color: AppColor.secondColor,
-        child: Column(
-          children: [
-            Expanded(child: pages.elementAt(controller.selectIndex.value)),
-            BottomNavigationWidget()
-          ],
-        ),
+    return const Material(
+      color: AppColor.secondColor,
+      child: HomePage(
+        key: KeyConstants.homePage,
       ),
+      // child: Column(
+      //   children: [
+      //     Expanded(child: pages.elementAt(controller.selectIndex.value)),
+      //     BottomNavigationWidget()
+      //   ],
+      // ),
     );
   }
 }
