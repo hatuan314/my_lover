@@ -129,18 +129,6 @@ class MainController extends GetxController {
   Future<void> onReady() async {
     super.onReady();
     await flutterLocalNotificationsPlugin.cancelAll();
-    // _scheduleDailyNotification(
-    //   message: 'Anh yêu em',
-    //   scheduleTime: _nextInstanceOfTenAM(22, 0),
-    // );
-    // _scheduleDailyNotification(
-    //   message: 'Sumi ngủ ngoan',
-    //   scheduleTime: _nextInstanceOfTenAM(23, 0),
-    // );
-    // _scheduleDailyNotification(
-    //   message: 'Sumi ơi! Dậy đi làm thôi. 6h30 rồi',
-    //   scheduleTime: _nextInstanceOfTenAM(6, 30),
-    // );
     _scheduleDailyNotification(
       0,
       _nextInstanceOfTenAM(10, 24),

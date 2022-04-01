@@ -8,6 +8,7 @@ class AppScreen extends StatelessWidget {
   final List<Widget>? actions;
   final Widget body;
   final Widget? titleWidget;
+  final Color? backgroundColor;
 
   const AppScreen({
     Key? key,
@@ -15,12 +16,13 @@ class AppScreen extends StatelessWidget {
     this.actions,
     required this.body,
     this.titleWidget,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.transparent,
+      backgroundColor: backgroundColor ?? AppColor.transparent,
       appBar: AppBarWidget(
         title: title,
         actions: actions,

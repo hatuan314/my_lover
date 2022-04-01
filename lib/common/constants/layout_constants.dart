@@ -16,6 +16,7 @@ class LayoutConstants {
 
   static double width_8 = 8.w;
 
+  static double space_36 = 36.sp;
   static double space_20 = 20.sp;
   static double space_16 = 16.sp;
   static double space_8 = 8.sp;

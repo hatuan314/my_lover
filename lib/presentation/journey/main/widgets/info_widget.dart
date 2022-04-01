@@ -56,6 +56,7 @@ class InfoWidget extends StatelessWidget {
           name,
           style: ThemeText.body1Pacifico,
         ),
+        SizedBox(height: LayoutConstants.space_8,),
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [

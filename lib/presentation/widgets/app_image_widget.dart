@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_lover/common/app_utils.dart';
+import 'package:my_lover/common/constants/image_constants.dart';
 import 'package:my_lover/common/constants/layout_constants.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
 
 class AppImageWidget extends StatelessWidget {
-  final String path;
+  String path;
   bool isAsset = false;
   Widget? placeholder;
   Widget? errorWidget;
@@ -17,18 +19,9 @@ class AppImageWidget extends StatelessWidget {
   final Color? color;
   double? loadingSize;
 
-  AppImageWidget.asset({
+  AppImageWidget({
+    Key? key,
     required this.path,
-    this.isAsset = true,
-    this.fit,
-    this.width,
-    this.height,
-    this.color,
-  });
-
-  AppImageWidget.network({
-    required this.path,
-    this.isAsset = false,
     this.placeholder,
     this.errorWidget,
     this.fit,
@@ -36,7 +29,7 @@ class AppImageWidget extends StatelessWidget {
     this.height,
     this.loadingSize,
     this.color,
-  });
+  }) : super(key: key);
 
   Widget get _placeholder {
     return Center(
@@ -51,7 +44,10 @@ class AppImageWidget extends StatelessWidget {
   }
 
   Widget get _errorWidget {
-    return const Icon(Icons.error);
+    return const Icon(
+      Icons.error,
+      color: AppColor.red,
+    );
   }
 
   Widget _buildLottieImageWidget() {
@@ -98,6 +94,9 @@ class AppImageWidget extends StatelessWidget {
       height: height,
       color: color,
       placeholderBuilder: (context) => placeholder ?? _placeholder,
+      // headers: {
+      //   'auth-token': SessionData.authToken,
+      // },
     );
   }
 
@@ -125,11 +124,22 @@ class AppImageWidget extends StatelessWidget {
           stalePeriod: const Duration(days: 1),
         ),
       ),
+      // httpHeaders: {
+      //   'auth-token': SessionData.authToken,
+      // },
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    if (AppUtils.isNullEmpty(path)) {
+      return Icon(
+        Icons.warning_amber_rounded,
+        color: AppColor.primaryColor,
+        size: LayoutConstants.space_16,
+      );
+    }
+    isAsset = checkAsset();
     switch (imageType) {
       case ImageType.lottie:
         return _buildLottieImageWidget();
@@ -150,6 +160,13 @@ class AppImageWidget extends StatelessWidget {
     } else {
       return ImageType.image;
     }
+  }
+
+  bool checkAsset() {
+    if (path.contains('http://') || path.contains('https://')) {
+      return false;
+    }
+    return true;
   }
 }
 
