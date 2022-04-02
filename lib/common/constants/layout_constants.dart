@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LayoutConstants {
-  static const int splashTimer = 3;
+  static const int splashTimer = 4;
 
   static const double roundedRadius = 10.0;
   static const double radius_8 = 8.0;
@@ -17,8 +17,10 @@ class LayoutConstants {
   static double width_8 = 8.w;
 
   static double space_36 = 36.sp;
+  static double space_32 = 32.sp;
   static double space_20 = 20.sp;
   static double space_16 = 16.sp;
+  static double space_12 = 12.sp;
   static double space_8 = 8.sp;
 
   static double iconsSize18 = 18.sp;

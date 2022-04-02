@@ -63,26 +63,26 @@ class ThemeText {
   static TextStyle subtitle1 = TextStyle(
     fontSize: 16.sp,
     color: AppColor.textColor,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
   );
 
   static TextStyle subtitle1Pacifico = TextStyle(
     fontSize: 16.sp,
     color: AppColor.textColor,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
     fontFamily: 'Pacifico',
   );
 
   static TextStyle subtitle2 = TextStyle(
     fontSize: 14.sp,
     color: AppColor.textColor,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
   );
 
   static TextStyle body1 = TextStyle(
     fontSize: 16.sp,
     color: AppColor.textColor,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.normal,
   );
 
   static TextStyle body1Pacifico = TextStyle(
@@ -96,7 +96,7 @@ class ThemeText {
   static TextStyle body2 = TextStyle(
     fontSize: 14.sp,
     color: AppColor.textColor,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.normal,
   );
 
   static TextStyle body2Pacifico = TextStyle(

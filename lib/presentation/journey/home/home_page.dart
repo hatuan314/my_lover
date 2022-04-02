@@ -6,15 +6,18 @@ import 'package:my_lover/common/constants/image_constants.dart';
 import 'package:my_lover/common/constants/layout_constants.dart';
 import 'package:my_lover/common/constants/string_constants.dart';
 import 'package:my_lover/presentation/journey/home/home_controller.dart';
+import 'package:my_lover/presentation/journey/main/main_controller.dart';
 import 'package:my_lover/presentation/journey/main/widgets/info_widget.dart';
 import 'package:my_lover/presentation/themes/theme_color.dart';
 import 'package:my_lover/presentation/themes/theme_text.dart';
+import 'package:my_lover/presentation/widgets/app_dialog.dart';
 import 'package:my_lover/presentation/widgets/app_image_widget.dart';
 import 'package:my_lover/presentation/widgets/app_screen.dart';
-import 'package:my_lover/presentation/widgets/appbar_widget.dart';
+import 'package:my_lover/presentation/widgets/button_widget.dart';
 import 'package:my_lover/presentation/widgets/carousel_slider/carousel_slider.dart';
-import 'package:my_lover/presentation/widgets/onboarding_animation/onboarding_animation_widget.dart';
-import 'package:my_lover/presentation/widgets/ware_progress/ware_progress_widget.dart';
+
+import 'widgets/happy_birthday_sumi_dialog.dart';
+import 'widgets/one_year_anniversary_lovers_dialog.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -46,8 +49,7 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    double loveProgressSize = MediaQuery.of(context).size.width * 0.5;
-    double progress = 60;
+    controller.context = context;
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
@@ -62,37 +64,37 @@ class HomePage extends GetView<HomeController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const SizedBox.shrink(),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  Stack(
+                    alignment: Alignment.center,
                     children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          AppImageWidget(path: ImageConstants.heartbeatLove, fit: BoxFit.cover,),
-                          Text(
-                            controller.dating.value.toString(),
-                            style: ThemeText.headline3Pacifico.copyWith(color: AppColor.primaryColor),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: LayoutConstants.appPaddingHorizontal).copyWith(top: 200.h),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                InfoWidget(
-                                  name: 'Hoàng Tuấn',
-                                  sex: Sex.male,
-                                  zodiac: Zodiac.pisces,
-                                  age: controller.myAge.value,
-                                ),
-                                InfoWidget(
-                                    name: 'Duyên Sumi', sex: Sex.female, zodiac: Zodiac.cancer, age: controller.sumiAge.value),
-                              ],
-                            ),
-                          ),
-                        ],
+                      AppImageWidget(
+                        path: ImageConstants.heartbeatLove,
+                        fit: BoxFit.cover,
                       ),
-
+                      Text(
+                        controller.dating.value.toString(),
+                        style: ThemeText.headline3Pacifico.copyWith(color: AppColor.primaryColor),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: LayoutConstants.appPaddingHorizontal).copyWith(top: 200.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InfoWidget(
+                              name: 'Hoàng Tuấn',
+                              sex: Sex.male,
+                              zodiac: Zodiac.pisces,
+                              age: controller.myAge.value,
+                            ),
+                            InfoWidget(
+                                name: 'Duyên Sumi',
+                                sex: Sex.female,
+                                zodiac: Zodiac.cancer,
+                                age: controller.sumiAge.value),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -104,7 +106,7 @@ class HomePage extends GetView<HomeController> {
           ),
         ),
         Container(
-            width: Get.width* 0.8,
+            width: Get.width * 0.8,
             padding: EdgeInsets.only(bottom: LayoutConstants.space_36),
             child: AppImageWidget(path: ImageConstants.kissYou)),
       ],

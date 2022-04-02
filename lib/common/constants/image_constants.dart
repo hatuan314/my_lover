@@ -15,4 +15,5 @@ class ImageConstants {
   static const String coupe = lottiePath + '/coupe.json';
   static const String kissYou = lottiePath + '/kissing_you.json';
   static const String heartbeatLove = lottiePath + '/heartbeat_love.json';
+  static const String happyBirthday = lottiePath + '/happy_birthday.json';
 }
