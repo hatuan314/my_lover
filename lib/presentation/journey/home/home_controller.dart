@@ -197,7 +197,7 @@ class HomeController extends GetxController {
           child: HappyBirthdaySumiDialog(
             dating: dating.value,
           ));
-    } else if (currentDate == DateTime(2022, 4, 2)) {
+    } else if (currentDate == DateTime(2022, 10, 24)) {
       showAppDialog(context, child: const OneYearAnniversaryLoversDialog());
     }
   }
